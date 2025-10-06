@@ -1,0 +1,21 @@
+{
+  "name": "backend-vitalpet",
+  "version": "1.0.0",
+  "description": "Backend de VitalPet, una veterinaria que ofrece servicios de cuidado y atención para mascotas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AcostaCl/BackEnd-VitalPet.git"
+  },
+  "keywords": [],
+  "author": "Grupo 3 - Celina Acosta, José Benjamin Quirós, Milton Ramón Mamani, Santiago Gonzalez, Tobias Conde ",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AcostaCl/BackEnd-VitalPet/issues"
+  },
+  "homepage": "https://github.com/AcostaCl/BackEnd-VitalPet#readme"
+}
