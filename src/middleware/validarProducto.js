@@ -30,6 +30,30 @@ const validacionProducto = [
         throw new Error("El precio debe estar entre 50 y 1000000");
       }
     }),
+  body("imagen")
+    .notEmpty()
+    .withMessage("La imagen es un dato obligatorio")
+    .matches(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/)
+    .withMessage(
+      "La imagen debe ser una URL válida y debe terminar en .jpg, .jpeg, .png o .webp"
+    ),
+  body("categoria")
+    .notEmpty()
+    .withMessage("La categoria es un dato obligatorio")
+    .isIn(["Alimentos", "Suplementos", "Accesorios", "Higiene y Cuidado"])
+    .withMessage(
+      "La categoria debe ser una de las siguientes opciones: Alimentos, Suplementos, Accesorios, Higiene y Cuidado"
+    ),
+  body("descripcion_breve")
+    .notEmpty()
+    .withMessage("La descripcion breve es obligatoria")
+    .isLength({ min: 5, max: 250 })
+    .withMessage("La descripcion breve debe tener entre 5 y 250 caracteres"),
+  body("descripcion_amplia")
+    .notEmpty()
+    .withMessage("La descripcion amplia es obligatoria")
+    .isLength({ min: 10, max: 500 })
+    .withMessage("La descripcion amplia debe tener entre 10 y 500 caracteres"),
   (req, res, next) => resultadoValidacion(req, res, next),
 ];
 
