@@ -34,6 +34,25 @@ export const crearUsuario = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
+    const { email, password } = req.body;
+
+    const usuarioExistente = await Usuario.findOne({ email });
+    if (!usuarioExistente) {
+      return res.status(400).json({ mensaje: "No se encontró el usuario" });
+    }
+
+    const passwordVerificado = bcrypt.compareSync(
+      password,
+      usuarioExistente.password
+    );
+
+    if (!passwordVerificado) {
+      return res.status(400).json({ mensaje: "Credenciales incorrectas" });
+    }
+    res.status(200).json({
+      mensaje: "Inicio de sesión exitoso",
+      nombreUsuario: usuarioExistente.nombreUsuario,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ mensaje: "Error al iniciar sesión" });
