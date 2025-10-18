@@ -1,21 +1,20 @@
-import { Router } from "express";
 import {
-  leerPacientes,
-  crearPaciente,
-  leerPacientePorId,
-  editarPacientePorId,
   borrarPacientePorId,
-} from "../controllers/pacienteController.js";
+  crearPaciente,
+  editarPacientePorId,
+  leerPacientePorId,
+  leerPacientes,
+} from "../controllers/pacientes.controllers.js";
 
-import validarJWT from "../middlewares/validarJWT.js";
+import { Router } from "express";
+import verificarJWT from "../middleware/verificarJWT.js";
 
-const router = express.Router();
+const router = Router();
 
-// Todas las rutas protegidas
-router.get("/", validarJWT, leerPacientes);
-router.post("/", validarJWT, crearPaciente);
-router.get("/:id", validarJWT, leerPacientePorId);
-router.put("/:id", validarJWT, editarPacientePorId);
-router.delete("/:id", validarJWT, borrarPacientePorId);
+router.get("/", verificarJWT, leerPacientes);
+router.post("/", verificarJWT, crearPaciente);
+router.get("/:id", verificarJWT, leerPacientePorId);
+router.put("/:id", verificarJWT, editarPacientePorId);
+router.delete("/:id", verificarJWT, borrarPacientePorId);
 
 export default router;
