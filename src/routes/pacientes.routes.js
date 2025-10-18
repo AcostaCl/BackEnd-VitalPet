@@ -1,20 +1,22 @@
+import { Router } from "express";
 import {
   borrarPacientePorId,
   crearPaciente,
   editarPacientePorId,
   leerPacientePorId,
   leerPacientes,
-} from "../controllers/pacientes.controllers.js";
-
-import { Router } from "express";
-import verificarJWT from "../middleware/verificarJWT.js";
+} from "../controllers/pacientes.controllers";
+import verificarJWT from "../middleware/verificarJWT";
 
 const router = Router();
-
-router.get("/", verificarJWT, leerPacientes);
-router.post("/", verificarJWT, crearPaciente);
-router.get("/:id", verificarJWT, leerPacientePorId);
-router.put("/:id", verificarJWT, editarPacientePorId);
-router.delete("/:id", verificarJWT, borrarPacientePorId);
+router
+  .route("/")
+  .get(verificarJWT, leerPacientes)
+  .post(verificarJWT, crearPaciente);
+router
+  .route("/:id")
+  .get(verificarJWT, leerPacientePorId)
+  .put(verificarJWT, editarPacientePorId)
+  .delete(verificarJWT, borrarPacientePorId);
 
 export default router;
