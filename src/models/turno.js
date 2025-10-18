@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import Paciente from "./paciente.js";
 
 const TurnoSchema = new Schema(
   {
@@ -18,10 +19,9 @@ const TurnoSchema = new Schema(
 
     mascota: {
       type: Schema.Types.ObjectId,
-      ref: "Paciente",
+      ref: "paciente",
       required: true,
     },
-
     fecha: {
       type: Date,
       required: true,
@@ -33,7 +33,6 @@ const TurnoSchema = new Schema(
         message: "La fecha debe ser un día hábil (Lunes a Viernes).",
       },
     },
-
     hora: {
       type: String,
       required: true,
