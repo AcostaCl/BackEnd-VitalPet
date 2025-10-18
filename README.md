@@ -75,8 +75,9 @@ Ejemplo:
 ```bash
 POST /api/usuarios/login
 POST /api/usuarios/registro
-GET /api/mascotas
+GET /api/pacientes
 POST /api/turnos
+POST /api/mensajes
 
 ```
 
