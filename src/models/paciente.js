@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const PacienteSchema = new Schema(
   {
@@ -66,6 +66,6 @@ const PacienteSchema = new Schema(
   },
   { timestamps: true }
 );
+const Paciente = mongoose.model("paciente", PacienteSchema);
 
-const Paciente = mongoose.model("Paciente", PacienteSchema);
 export default Paciente;

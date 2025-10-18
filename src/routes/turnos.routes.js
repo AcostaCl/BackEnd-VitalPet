@@ -1,13 +1,13 @@
 import { Router } from "express";
 
-import verificarJWT from "../middleware/verificarJWT";
+import verificarJWT from "../middleware/verificarJWT.js";
 import {
   borrarTurnoPorId,
   crearTurno,
   editarTurnoPorId,
   leerTurnoPorId,
   leerTurnos,
-} from "../controllers/turno.controllers";
+} from "../controllers/turno.controllers.js";
 
 const router = Router();
 router.route("/").get(verificarJWT, leerTurnos).post(verificarJWT, crearTurno);

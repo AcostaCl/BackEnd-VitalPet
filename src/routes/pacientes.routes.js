@@ -5,8 +5,8 @@ import {
   editarPacientePorId,
   leerPacientePorId,
   leerPacientes,
-} from "../controllers/pacientes.controllers";
-import verificarJWT from "../middleware/verificarJWT";
+} from "../controllers/pacientes.controllers.js";
+import verificarJWT from "../middleware/verificarJWT.js";
 
 const router = Router();
 router

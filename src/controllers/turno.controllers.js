@@ -1,4 +1,4 @@
-import Turno from "../models/turno";
+import Turno from "../models/turno.js";
 
 export const leerTurnos = async (req, res) => {
   try {

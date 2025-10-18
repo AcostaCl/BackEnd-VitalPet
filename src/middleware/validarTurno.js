@@ -1,5 +1,5 @@
 import { body } from "express-validator";
-import resultadoValidacion from "./resultadoValidacion";
+import resultadoValidacion from "./resultadoValidacion.js";
 
 export const validacionTurno = [
   body("detalle")
@@ -49,3 +49,5 @@ export const validacionTurno = [
 
   (req, res, next) => resultadoValidacion(req, res, next),
 ];
+
+export default validacionTurno;
