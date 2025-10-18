@@ -55,8 +55,6 @@ npm install
 
 ```bash
 PORT=3001
-MONGODB=mongodb+srv://develop3er:LhHEspCPr0EIidwO@cluster0.rz2a5qv.mongodb.net/VetVitalPet
-SECRET_JWT= Cl43v3$%s3cr3t0fr4s3
 
 ```
 
@@ -77,7 +75,7 @@ POST /api/usuarios/login
 POST /api/usuarios/registro
 GET /api/pacientes
 POST /api/turnos
-POST /api/mensajes
+POST /api/mensaje
 
 ```
 
