@@ -8,15 +8,18 @@ import {
   test,
 } from "../controllers/productos.controllers.js";
 import validacionProducto from "../middleware/validarProducto.js";
+import verificarJWT from "../middleware/verificarJWT.js";
 
 const router = Router();
-
 router.route("/test").get(test);
-router.route("/").get(leerProductos).post(validacionProducto, CrearProducto);
+router
+  .route("/")
+  .get(leerProductos)
+  .post([verificarJWT, validacionProducto], CrearProducto);
 router
   .route("/:id")
   .get(leerProductoPorId)
-  .delete(borrarProductoPorId)
-  .put(validacionProducto, editarProductoPorId);
+  .delete(verificarJWT, borrarProductoPorId)
+  .put([verificarJWT, validacionProducto], editarProductoPorId);
 
 export default router;
