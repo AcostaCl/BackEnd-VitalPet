@@ -1,4 +1,4 @@
-import Mensaje from "../models/mensaje";
+import Mensaje from "../models/mensaje.js";
 
 export const leerMensajes = async (req, res) => {
   try {
@@ -9,7 +9,6 @@ export const leerMensajes = async (req, res) => {
     res.status(500).json({ mensaje: "Error al leer los mensajes" });
   }
 };
-
 export const crearMensaje = async (req, res) => {
   try {
     const nuevoMensaje = new Mensaje(req.body);
