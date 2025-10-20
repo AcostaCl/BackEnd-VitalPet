@@ -2,7 +2,10 @@ import Turno from "../models/turno.js";
 
 export const leerTurnos = async (req, res) => {
   try {
-    const turnos = await Turno.find().populate("mascota");
+    const turnos = await Turno.find().select(
+      "detalle veterinario mascota fecha hora"
+    );
+
     res.status(200).json(turnos);
   } catch (error) {
     res.status(500).json({ mensaje: "Error al leer los turnos" });
